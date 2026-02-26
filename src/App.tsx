@@ -73,12 +73,17 @@ const HestiaControlPanel = () => {
     return () => clearTimeout(timer);
   }, [isScanning]);
 
+  const [isScanError, setIsScanError] = useState(false);
+
+  // ...
+
   const handleQrResult = (rawValue: string) => {
     // Validate HESTIA:IP:PORT format
     if (!rawValue.startsWith('http')) {
       stopScan();
       showError(
-        'Invalid QR code scanned.\n\nExpected format:\nhttp://IP_ADDRESS:PORT\n\nExample: http://192.168.4.74:8085'
+        'Invalid QR code scanned.\n\nExpected format:\nhttp://IP_ADDRESS:PORT\n\nExample: http://192.168.4.74:8085',
+        true
       );
       return;
     }
@@ -87,12 +92,13 @@ const HestiaControlPanel = () => {
     if (parts.length !== 3 || !parts[1] || !parts[2]) {
       stopScan();
       showError(
-        'Invalid QR code format.\n\nExpected: http://IP_ADDRESS:PORT\nGot: ' + rawValue
+        'Invalid QR code format.\n\nExpected: http://IP_ADDRESS:PORT\nGot: ' + rawValue,
+        true
       );
       return;
     }
 
-    const scannedIp = parts[1];
+    const scannedIp = parts[1].replace(/^\/\//, '');
     const scannedPort = parts[2];
 
     setIpAddress(scannedIp);
@@ -117,11 +123,12 @@ const HestiaControlPanel = () => {
     setIsScanning(false);
   };
 
-  const showError = (msg: string) => {
+  const showError = (msg: string, fromScan: boolean = false) => {
     setErrorMessage(msg);
     setHasError(true);
     setIsConnected(false);
     setEspUrl('');
+    setIsScanError(fromScan);
   };
 
   const connectToDevice = async (ip: string, p: string) => {
@@ -144,6 +151,7 @@ const HestiaControlPanel = () => {
     setEspUrl(url);
     setHasError(false);
     setErrorMessage('');
+    setIsScanError(false);
     setIframeLoading(true);
     setIsConnected(true);
 
@@ -214,6 +222,7 @@ const HestiaControlPanel = () => {
       setIsConnected(false);
       setHasError(false);
       setErrorMessage('');
+      setIsScanError(false);
     }
   };
 
@@ -222,6 +231,7 @@ const HestiaControlPanel = () => {
     setErrorMessage('');
     setIsConnected(false);
     setEspUrl('');
+    setIsScanError(false);
   };
 
   // ═══════════════════════════════
@@ -280,13 +290,17 @@ const HestiaControlPanel = () => {
               onClick={() => {
                 setHasError(false);
                 setErrorMessage('');
-                connectToDevice(ipAddress, port);
+                if (isScanError) {
+                  startScan();
+                } else {
+                  connectToDevice(ipAddress, port);
+                }
               }}
               className="w-full py-3.5 rounded-xl text-white font-bold text-base active:scale-[0.97] transition-all flex items-center justify-center gap-2"
               style={{ background: 'linear-gradient(135deg, #FF7A45 0%, #FFB74D 100%)' }}
             >
-              <FontAwesomeIcon icon={faRedo} />
-              Retry Connection
+              <FontAwesomeIcon icon={isScanError ? faQrcode : faRedo} />
+              {isScanError ? 'Retry Scan' : 'Retry Connection'}
             </button>
 
             <button
