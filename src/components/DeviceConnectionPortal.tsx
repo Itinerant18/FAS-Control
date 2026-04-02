@@ -36,9 +36,9 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
             <header className="relative z-10 px-6 pt-10 pb-2 flex flex-col items-center">
                 <img src={logo} alt="Hestia Logo" className="h-24 w-auto mb-3 drop-shadow-lg" />
                 <h1 className="text-2xl font-bold text-[#1e293b] flex items-center gap-2">
-                    🔥 Hestia Control
+                    SEPLE Connect
                 </h1>
-                <p className="text-sm text-[#5E6D85] mt-1 font-medium">Fire Alarm Control Panel</p>
+                <p className="text-sm text-[#5E6D85] mt-1 font-medium">Smart Device & System Management</p>
             </header>
 
             <main className="relative z-10 px-6 pb-8 flex-1 flex flex-col max-w-md mx-auto w-full">
@@ -62,9 +62,9 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
 
                             {/* Text */}
                             <div className="text-center">
-                                <span className="text-lg font-bold text-[#1e293b] block">Scan QR Code</span>
+                                <span className="text-lg font-bold text-[#1e293b] block">Connect Your Device</span>
                                 <span className="text-sm text-[#5E6D85] mt-1 block">
-                                    Point camera at your Hestia device
+                                    Scan the QR code available on your device or system to securely connect and configure it.
                                 </span>
                             </div>
 

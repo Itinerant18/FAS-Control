@@ -151,7 +151,8 @@ For convenience, you can use the build script:
 
 If you encounter issues or want to ensure a completely fresh build:
 
-### Clean Build Commands
+### Clean Build Commands    
+
 From **project root** (`C:\workspace\New folder\HestiaApp`):
 
 ```powershell

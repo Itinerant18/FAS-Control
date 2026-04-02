@@ -27,7 +27,7 @@ const HestiaControlPanel = () => {
   useEffect(() => {
     return () => {
       if (scannerRef.current) {
-        scannerRef.current.stop().catch(() => { });
+        scannerRef.current.stop().catch(() => { }); 
       }
       if (iframeTimerRef.current) {
         clearTimeout(iframeTimerRef.current);
@@ -330,7 +330,7 @@ const HestiaControlPanel = () => {
                 <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-60" />
                 <div className="relative w-3 h-3 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
               </div>
-              <span className="text-base font-bold">Hestia Panel</span>
+              <span className="text-base font-bold">SEPLE Connect</span>
             </div>
 
             <button

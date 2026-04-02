@@ -30,5 +30,9 @@ npm-debug.log*
 .env.local
 .env.*.local
 
+# Keystores
+*.keystore
+*.jks
+
 # Debug
 npm-debug.log*
