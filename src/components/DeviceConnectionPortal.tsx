@@ -54,7 +54,7 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
                 <div className="text-center space-y-1">
                     <h2 className="text-xl font-bold text-[#252F3D]">Device Connectivity</h2>
                     <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">
-                        Management Console v1.0.2
+                        Smart Device & System Management
                     </p>
                 </div>
 
@@ -79,14 +79,14 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
                             </div>
 
                             <div className="text-center">
-                                <span className="text-lg font-bold text-[#252F3D] block">Scan Device QR</span>
+                                <span className="text-lg font-bold text-[#252F3D] block">Connect your Device</span>
                                 <span className="text-xs text-slate-500 mt-2 block leading-relaxed px-4">
                                     Securely pair your Hestia hardware by scanning the identification code on the system panel.
                                 </span>
                             </div>
 
-                            <div className="w-full py-3 bg-[#52B5A2] text-white text-sm font-bold rounded flex items-center justify-center gap-2 group-hover:bg-[#46a08f] transition-colors shadow-sm">
-                                START DISCOVERY
+                            <div className="w-full py-3 bg-[#52B5A2] text-white text-sm font-bold rounded flex items-center justify-center gap-2 group-hover:bg-[#46a08f] transition-colors shadow-sm uppercase tracking-widest">
+                                TAP TO SCAN
                                 <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
                             </div>
                         </div>
@@ -101,7 +101,7 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
                         onClick={() => setShowManual(!showManual)}
                         className="w-full flex items-center justify-between px-2"
                     >
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Manual Entry</span>
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">MANUAL CONNECTION</span>
                         <div className={`w-6 h-6 rounded flex items-center justify-center transition-colors ${showManual ? 'bg-[#252F3D] text-white' : 'bg-slate-200 text-slate-500'}`}>
                             <FontAwesomeIcon
                                 icon={faChevronDown}
