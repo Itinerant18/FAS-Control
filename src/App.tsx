@@ -328,7 +328,7 @@ const HestiaControlPanel = () => {
     return (
       <div className="fixed inset-0 flex flex-col overflow-hidden bg-[#F5F7FA]">
         {/* ThingsBoard Top Bar */}
-        <div className="flex-none bg-[#252F3D] text-white px-4 py-3 shadow-md z-50">
+        <div className="flex-none bg-[#252F3D] text-white px-4 pt-[calc(0.75rem+env(safe-area-inset-top))] pb-3 shadow-md z-50">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="relative flex items-center justify-center">

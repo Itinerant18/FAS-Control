@@ -32,7 +32,7 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
         <div className="min-h-screen font-sans flex flex-col bg-[#F5F7FA]">
 
             {/* ThingsBoard Style Header */}
-            <header className="bg-[#252F3D] px-6 py-4 flex items-center justify-between shadow-md">
+            <header className="bg-[#252F3D] px-6 pt-[calc(1rem+env(safe-area-inset-top))] pb-4 flex items-center justify-between shadow-md">
                 <div className="flex items-center gap-3">
                     <div className="bg-white p-1 rounded">
                          <img src={logo} alt="Hestia Logo" className="h-6 w-auto" />
