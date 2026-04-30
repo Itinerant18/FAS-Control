@@ -29,7 +29,7 @@ const DeviceConnectionPortal: React.FC<DeviceConnectionPortalProps> = ({
     const [showManual, setShowManual] = useState(false);
 
     return (
-        <div className="min-h-screen font-sans flex flex-col bg-[#F5F7FA]">
+        <div className="min-h-screen font-sans flex flex-col bg-[#F5F7FA] overflow-y-auto">
 
             {/* ThingsBoard Style Header */}
             <header className="bg-[#252F3D] px-6 pt-[calc(1rem+env(safe-area-inset-top))] pb-4 flex items-center justify-between shadow-md">
