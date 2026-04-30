@@ -44,56 +44,38 @@
 :root {
   --radius: 0.625rem;
 
-  /* User Defined Palette — Light Theme */
-  --color-primary: #5E6D85;
-  --color-primary-dark: #4E5F78;
-  --color-accent: #FF7A45;
-  --color-accent-light: #FFB74D;
-  --color-background: #f0f2f5;
+  /* ThingsBoard Inspired Palette */
+  --color-primary: #252F3D;      /* TB Navy */
+  --color-accent: #52B5A2;       /* TB Teal */
+  --color-success: #4CAF50;      /* TB Green */
+  --color-warning: #D99B52;      /* TB Amber */
+  --color-background: #F5F7FA;   /* TB Light BG */
   --color-card: #ffffff;
-  --color-text-primary: #1e293b;
+  --color-text-primary: #252F3D;
   --color-text-secondary: #64748b;
-  --color-divider: #e2e8f0;
 
-  /* Tailwind Semantic Mappings — Light Theme */
-  --background: 220 14% 96%;
-  /* #f0f2f5 */
-  --foreground: 215 28% 17%;
-  /* #1e293b */
+  /* Tailwind Semantic Mappings */
+  --background: 210 20% 98%;     /* #F5F7FA */
+  --foreground: 215 25% 19%;     /* #252F3D */
 
   --card: 0 0% 100%;
-  /* #ffffff */
-  --card-foreground: 215 28% 17%;
+  --card-foreground: 215 25% 19%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 215 28% 17%;
-
-  --primary: 217 17% 45%;
-  /* #5E6D85 Brand primary */
+  --primary: 215 25% 19%;        /* TB Navy */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 218 21% 39%;
-  /* #4E5F78 Brand primary-dark */
+  --secondary: 168 41% 52%;      /* TB Teal */
   --secondary-foreground: 0 0% 100%;
 
-  --muted: 220 14% 96%;
-  /* #f1f5f9 Light muted surfaces */
-  --muted-foreground: 215 16% 47%;
-  /* #64748b Slate-500 */
-
-  --accent: 17 100% 64%;
-  /* #FF7A45 Brand accent */
+  --accent: 168 41% 52%;         /* TB Teal */
   --accent-foreground: 0 0% 100%;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
+  --muted: 210 20% 96%;
+  --muted-foreground: 215 16% 47%;
 
   --border: 214 32% 91%;
-  /* #e2e8f0 Slate-200 */
   --input: 214 32% 91%;
-  /* Slate-200 for input borders */
-  --ring: 17 100% 64%;
-  /* Accent for rings */
+  --ring: 168 41% 52%;           /* TB Teal for focus */
 
   /* Chart colors */
   --chart-1: 17 100% 64%;

@@ -270,46 +270,51 @@ const HestiaControlPanel = () => {
   // ═══════════════════════════════
   if (hasError) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white z-50 p-6">
-        <div className="w-full max-w-sm text-center">
-          {/* Error icon */}
-          <div className="mb-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#fef2f2] border-2 border-[#fecaca]">
-              <FontAwesomeIcon icon={faExclamationTriangle} className="text-3xl text-[#ef4444]" />
+      <div className="fixed inset-0 flex items-center justify-center bg-[#F5F7FA] z-50 p-6">
+        <div className="w-full max-w-sm">
+          <div className="bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
+            {/* Error Header */}
+            <div className="bg-[#ef4444] px-4 py-2 flex items-center justify-between">
+              <span className="text-white text-[10px] font-bold uppercase tracking-widest">System Alert</span>
+              <FontAwesomeIcon icon={faExclamationTriangle} className="text-white text-xs" />
             </div>
-          </div>
 
-          <h2 className="text-xl font-bold text-[#1e293b] mb-3">Connection Failed</h2>
+            <div className="p-8 text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-50">
+                <FontAwesomeIcon icon={faExclamationTriangle} className="text-2xl text-[#ef4444]" />
+              </div>
 
-          <p className="text-sm text-[#5E6D85] whitespace-pre-line leading-relaxed mb-8 px-2">
-            {errorMessage}
-          </p>
+              <h2 className="text-lg font-bold text-[#252F3D] mb-3">Connection Failure</h2>
+              <p className="text-xs text-slate-500 whitespace-pre-line leading-relaxed mb-8 px-2">
+                {errorMessage}
+              </p>
 
-          <div className="space-y-3">
-            <button
-              onClick={() => {
-                setHasError(false);
-                setErrorMessage('');
-                if (isScanError) {
-                  startScan();
-                } else {
-                  connectToDevice(ipAddress, port);
-                }
-              }}
-              className="w-full py-3.5 rounded-xl text-white font-bold text-base active:scale-[0.97] transition-all flex items-center justify-center gap-2"
-              style={{ background: 'linear-gradient(135deg, #FF7A45 0%, #FFB74D 100%)' }}
-            >
-              <FontAwesomeIcon icon={isScanError ? faQrcode : faRedo} />
-              {isScanError ? 'Retry Scan' : 'Retry Connection'}
-            </button>
+              <div className="space-y-3">
+                <button
+                  onClick={() => {
+                    setHasError(false);
+                    setErrorMessage('');
+                    if (isScanError) {
+                      startScan();
+                    } else {
+                      connectToDevice(ipAddress, port);
+                    }
+                  }}
+                  className="w-full py-3 rounded bg-[#252F3D] text-white font-bold text-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-md"
+                >
+                  <FontAwesomeIcon icon={isScanError ? faQrcode : faRedo} />
+                  {isScanError ? 'RETRY DISCOVERY' : 'RETRY CONNECTION'}
+                </button>
 
-            <button
-              onClick={goBack}
-              className="w-full py-3.5 rounded-xl font-bold text-base text-[#5E6D85] bg-[#f1f5f9] hover:bg-[#e2e8f0] active:scale-[0.97] transition-all flex items-center justify-center gap-2"
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-              Back to Setup
-            </button>
+                <button
+                  onClick={goBack}
+                  className="w-full py-3 rounded border border-slate-200 bg-white text-slate-600 font-bold text-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                >
+                  <FontAwesomeIcon icon={faArrowLeft} />
+                  ABORT & RETURN
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -321,35 +326,38 @@ const HestiaControlPanel = () => {
   // ═══════════════════════════════
   if (isConnected && espUrl) {
     return (
-      <div className="fixed inset-0 flex flex-col overflow-hidden">
-        {/* Dark Top Bar */}
-        <div className="flex-none bg-[#2c3e50] text-white px-4 py-3 shadow-lg z-50">
+      <div className="fixed inset-0 flex flex-col overflow-hidden bg-[#F5F7FA]">
+        {/* ThingsBoard Top Bar */}
+        <div className="flex-none bg-[#252F3D] text-white px-4 py-3 shadow-md z-50">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-60" />
-                <div className="relative w-3 h-3 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
+              <div className="relative flex items-center justify-center">
+                <div className="absolute w-2.5 h-2.5 bg-[#4CAF50] rounded-full animate-ping opacity-60" />
+                <div className="relative w-2 h-2 bg-[#4CAF50] rounded-full" />
               </div>
-              <span className="text-base font-bold">SEPLE Connect</span>
+              <span className="text-sm font-bold tracking-tight">SEPLE Connect</span>
+              <span className="hidden xs:inline-block bg-[#52B5A2] text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">
+                Linked
+              </span>
             </div>
 
             <button
               onClick={handleDisconnect}
-              className="px-4 py-2 bg-[#ef4444] hover:bg-[#dc2626] rounded-lg text-sm font-bold transition-all active:scale-[0.95]"
+              className="px-3 py-1.5 bg-[#ef4444] hover:bg-[#dc2626] rounded text-[10px] font-bold uppercase tracking-wider transition-all active:scale-[0.95] shadow-sm"
             >
-              Disconnect
+              Terminate
             </button>
           </div>
         </div>
 
         {/* Full Screen iframe */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative bg-white">
           {iframeLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
+            <div className="absolute inset-0 flex items-center justify-center bg-slate-50 z-10">
               <div className="text-center">
-                <div className="w-12 h-12 border-4 border-[#e2e8f0] border-t-[#FF7A45] rounded-full animate-spin mx-auto mb-4" />
-                <p className="text-sm text-[#5E6D85] font-medium">Connecting to device...</p>
-                <p className="text-xs text-[#94a3b8] mt-1 font-mono">{espUrl}</p>
+                <div className="w-10 h-10 border-3 border-slate-200 border-t-[#52B5A2] rounded-full animate-spin mx-auto mb-4" />
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Syncing with Device...</p>
+                <p className="text-[9px] text-slate-400 mt-2 font-mono bg-white px-2 py-1 rounded border border-slate-100">{espUrl}</p>
               </div>
             </div>
           )}
