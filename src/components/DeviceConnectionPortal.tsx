@@ -5,8 +5,7 @@ import {
     faCircleNotch,
     faArrowRight,
     faWifi,
-    faChevronDown,
-    faKeyboard
+    faChevronDown
 } from '@fortawesome/free-solid-svg-icons';
 import logo from '@/assets/s1.svg';
 
